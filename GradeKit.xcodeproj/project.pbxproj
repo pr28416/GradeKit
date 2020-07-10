@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		8259FDBF24B75B4300B8A44A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8259FDBE24B75B4300B8A44A /* AppDelegate.swift */; };
 		8259FDC124B75B4300B8A44A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8259FDC024B75B4300B8A44A /* SceneDelegate.swift */; };
-		8259FDC324B75B4300B8A44A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8259FDC224B75B4300B8A44A /* ViewController.swift */; };
+		8259FDC324B75B4300B8A44A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8259FDC224B75B4300B8A44A /* MainVC.swift */; };
 		8259FDC624B75B4300B8A44A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8259FDC424B75B4300B8A44A /* Main.storyboard */; };
 		8259FDC824B75B4400B8A44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8259FDC724B75B4400B8A44A /* Assets.xcassets */; };
 		8259FDCB24B75B4400B8A44A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8259FDC924B75B4400B8A44A /* LaunchScreen.storyboard */; };
+		82A8BD9724B765E7004F5427 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A8BD9624B765E7004F5427 /* Global.swift */; };
+		82A8BD9924B767C0004F5427 /* GradeSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A8BD9824B767C0004F5427 /* GradeSheetVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8259FDBB24B75B4300B8A44A /* GradeKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradeKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8259FDBE24B75B4300B8A44A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8259FDC024B75B4300B8A44A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8259FDC224B75B4300B8A44A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8259FDC224B75B4300B8A44A /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		8259FDC524B75B4300B8A44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8259FDC724B75B4400B8A44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8259FDCA24B75B4400B8A44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8259FDCC24B75B4400B8A44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82A8BD9624B765E7004F5427 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		82A8BD9824B767C0004F5427 /* GradeSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSheetVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +62,9 @@
 			children = (
 				8259FDBE24B75B4300B8A44A /* AppDelegate.swift */,
 				8259FDC024B75B4300B8A44A /* SceneDelegate.swift */,
-				8259FDC224B75B4300B8A44A /* ViewController.swift */,
+				8259FDC224B75B4300B8A44A /* MainVC.swift */,
+				82A8BD9624B765E7004F5427 /* Global.swift */,
+				82A8BD9824B767C0004F5427 /* GradeSheetVC.swift */,
 				8259FDC424B75B4300B8A44A /* Main.storyboard */,
 				8259FDC724B75B4400B8A44A /* Assets.xcassets */,
 				8259FDC924B75B4400B8A44A /* LaunchScreen.storyboard */,
@@ -138,7 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8259FDC324B75B4300B8A44A /* ViewController.swift in Sources */,
+				82A8BD9924B767C0004F5427 /* GradeSheetVC.swift in Sources */,
+				82A8BD9724B765E7004F5427 /* Global.swift in Sources */,
+				8259FDC324B75B4300B8A44A /* MainVC.swift in Sources */,
 				8259FDBF24B75B4300B8A44A /* AppDelegate.swift in Sources */,
 				8259FDC124B75B4300B8A44A /* SceneDelegate.swift in Sources */,
 			);
@@ -287,6 +295,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2R6T6D54FQ;
 				INFOPLIST_FILE = GradeKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2R6T6D54FQ;
 				INFOPLIST_FILE = GradeKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
