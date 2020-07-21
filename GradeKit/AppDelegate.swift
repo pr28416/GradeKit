@@ -7,14 +7,60 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
+
+extension Notification.Name {
+    static let authLogin = Notification.Name("authLogin")
+    static let authLogout = Notification.Name("authLogout")
+    static let closeAuth = Notification.Name("closeAuth")
+}
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print("GAuth failed: \(error.localizedDescription)")
+            return
+        }
+        guard let user = user else {return}
+        guard let authentication = user.authentication else {return}
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        print("Passed preliminary GIDSignin")
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if let error = error {
+                print("Auth error: \(error.localizedDescription)")
+                return
+            }
+            
+        }
+        print("Passed secondary signin")
+        NotificationCenter.default.post(name: .closeAuth, object: nil, userInfo: [
+            "Email": user.profile.email as String
+        ])
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print("GAuth failed: \(error.localizedDescription)")
+            return
+        }
+        print("GAuth notify: User disconnected from app successfully.")
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url)
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
         return true
     }
 

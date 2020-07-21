@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,9 +15,17 @@
 		8259FDCB24B75B4400B8A44A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8259FDC924B75B4400B8A44A /* LaunchScreen.storyboard */; };
 		82A8BD9724B765E7004F5427 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A8BD9624B765E7004F5427 /* Global.swift */; };
 		82A8BD9924B767C0004F5427 /* GradeSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A8BD9824B767C0004F5427 /* GradeSheetVC.swift */; };
+		82BAB47724C4BF3A00A695AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82BAB47624C4BF3A00A695AF /* GoogleService-Info.plist */; };
+		82BAB47924C4D6AF00A695AF /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BAB47824C4D6AF00A695AF /* AuthVC.swift */; };
+		82F008D724C64A2900C4DA2A /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F008D624C64A2900C4DA2A /* LoadingVC.swift */; };
+		82F568C724C26974006A669B /* UtilitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F568C624C26974006A669B /* UtilitiesVC.swift */; };
+		82F568C924C345A3006A669B /* CumulativeCalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F568C824C345A3006A669B /* CumulativeCalcVC.swift */; };
+		C0799B919E7E7DFC010FAEE0 /* Pods_GradeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA0AEC080AD2E3BE9A8411D /* Pods_GradeKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15DF4C1664C2240ECF0BED9F /* Pods-GradeKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradeKit.debug.xcconfig"; path = "Target Support Files/Pods-GradeKit/Pods-GradeKit.debug.xcconfig"; sourceTree = "<group>"; };
+		7BA0AEC080AD2E3BE9A8411D /* Pods_GradeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8259FDBB24B75B4300B8A44A /* GradeKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradeKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8259FDBE24B75B4300B8A44A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8259FDC024B75B4300B8A44A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +36,12 @@
 		8259FDCC24B75B4400B8A44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82A8BD9624B765E7004F5427 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		82A8BD9824B767C0004F5427 /* GradeSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSheetVC.swift; sourceTree = "<group>"; };
+		82BAB47624C4BF3A00A695AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		82BAB47824C4D6AF00A695AF /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		82F008D624C64A2900C4DA2A /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
+		82F568C624C26974006A669B /* UtilitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesVC.swift; sourceTree = "<group>"; };
+		82F568C824C345A3006A669B /* CumulativeCalcVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CumulativeCalcVC.swift; sourceTree = "<group>"; };
+		8E2D24ADC8DBF746D58D5337 /* Pods-GradeKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradeKit.release.xcconfig"; path = "Target Support Files/Pods-GradeKit/Pods-GradeKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +49,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0799B919E7E7DFC010FAEE0 /* Pods_GradeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05CAD7F16C9BBCD317CE765E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BA0AEC080AD2E3BE9A8411D /* Pods_GradeKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8259FDB224B75B4300B8A44A = {
 			isa = PBXGroup;
 			children = (
 				8259FDBD24B75B4300B8A44A /* GradeKit */,
 				8259FDBC24B75B4300B8A44A /* Products */,
+				F3CD7EAFB4BB6C2DB7C82848 /* Pods */,
+				05CAD7F16C9BBCD317CE765E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,14 +88,28 @@
 				8259FDBE24B75B4300B8A44A /* AppDelegate.swift */,
 				8259FDC024B75B4300B8A44A /* SceneDelegate.swift */,
 				8259FDC224B75B4300B8A44A /* MainVC.swift */,
+				82BAB47824C4D6AF00A695AF /* AuthVC.swift */,
+				82F568C824C345A3006A669B /* CumulativeCalcVC.swift */,
 				82A8BD9624B765E7004F5427 /* Global.swift */,
+				82F568C624C26974006A669B /* UtilitiesVC.swift */,
 				82A8BD9824B767C0004F5427 /* GradeSheetVC.swift */,
 				8259FDC424B75B4300B8A44A /* Main.storyboard */,
+				82F008D624C64A2900C4DA2A /* LoadingVC.swift */,
 				8259FDC724B75B4400B8A44A /* Assets.xcassets */,
+				82BAB47624C4BF3A00A695AF /* GoogleService-Info.plist */,
 				8259FDC924B75B4400B8A44A /* LaunchScreen.storyboard */,
 				8259FDCC24B75B4400B8A44A /* Info.plist */,
 			);
 			path = GradeKit;
+			sourceTree = "<group>";
+		};
+		F3CD7EAFB4BB6C2DB7C82848 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15DF4C1664C2240ECF0BED9F /* Pods-GradeKit.debug.xcconfig */,
+				8E2D24ADC8DBF746D58D5337 /* Pods-GradeKit.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,9 +119,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8259FDCF24B75B4400B8A44A /* Build configuration list for PBXNativeTarget "GradeKit" */;
 			buildPhases = (
+				9197487CD9ED513BCD800B6C /* [CP] Check Pods Manifest.lock */,
 				8259FDB724B75B4300B8A44A /* Sources */,
 				8259FDB824B75B4300B8A44A /* Frameworks */,
 				8259FDB924B75B4300B8A44A /* Resources */,
+				23D78B3D3CFFEF18E104CD88 /* [CP] Embed Pods Frameworks */,
+				EF721777FB6F13EBC0D57222 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8259FDCB24B75B4400B8A44A /* LaunchScreen.storyboard in Resources */,
+				82BAB47724C4BF3A00A695AF /* GoogleService-Info.plist in Resources */,
 				8259FDC824B75B4400B8A44A /* Assets.xcassets in Resources */,
 				8259FDC624B75B4300B8A44A /* Main.storyboard in Resources */,
 			);
@@ -139,14 +182,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		23D78B3D3CFFEF18E104CD88 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GradeKit/Pods-GradeKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GradeKit/Pods-GradeKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GradeKit/Pods-GradeKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9197487CD9ED513BCD800B6C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GradeKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF721777FB6F13EBC0D57222 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GradeKit/Pods-GradeKit-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GradeKit/Pods-GradeKit-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GradeKit/Pods-GradeKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8259FDB724B75B4300B8A44A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82BAB47924C4D6AF00A695AF /* AuthVC.swift in Sources */,
 				82A8BD9924B767C0004F5427 /* GradeSheetVC.swift in Sources */,
+				82F008D724C64A2900C4DA2A /* LoadingVC.swift in Sources */,
+				82F568C924C345A3006A669B /* CumulativeCalcVC.swift in Sources */,
 				82A8BD9724B765E7004F5427 /* Global.swift in Sources */,
 				8259FDC324B75B4300B8A44A /* MainVC.swift in Sources */,
+				82F568C724C26974006A669B /* UtilitiesVC.swift in Sources */,
 				8259FDBF24B75B4300B8A44A /* AppDelegate.swift in Sources */,
 				8259FDC124B75B4300B8A44A /* SceneDelegate.swift in Sources */,
 			);
@@ -224,7 +330,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -278,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -290,6 +396,7 @@
 		};
 		8259FDD024B75B4400B8A44A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15DF4C1664C2240ECF0BED9F /* Pods-GradeKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -309,6 +416,7 @@
 		};
 		8259FDD124B75B4400B8A44A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E2D24ADC8DBF746D58D5337 /* Pods-GradeKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

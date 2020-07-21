@@ -67,12 +67,16 @@ class GradeSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         cell.gradePicker.dataSource = self
         cell.gradePicker.selectRow(letterGrades.firstIndex(of: gradeSheet.grade(at: indexPath.row).letter) ?? 0, inComponent: 0, animated: false)
         
+        cell.backView.layer.masksToBounds = false
         cell.backView.layer.cornerRadius = 10
         cell.backView.layer.shadowColor = UIColor.black.cgColor
         cell.backView.layer.shadowOffset = CGSize(width: 0, height: 2.5)
         cell.backView.layer.shadowRadius = 3
         cell.backView.layer.shadowOpacity = 0.3
         cell.backView.layer.shadowPath = UIBezierPath(roundedRect: cell.backView.bounds, cornerRadius: 10).cgPath
+        print(cell.backView.layer.bounds)
+        cell.backView.layer.shouldRasterize = true
+        cell.backView.layer.rasterizationScale = UIScreen.main.scale
         
         cell.gradePicker.layer.cornerRadius = 10
         
@@ -92,7 +96,12 @@ class GradeSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
 
     @IBAction func cancel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title: "Discard sheet", message: "Are you sure you want to discard this sheet? Your changes will not be saved.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Discard", style: .destructive, handler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func done(_ sender: Any) {
@@ -102,7 +111,7 @@ class GradeSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             tf.text = self.gradeSheet.sheetName
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Finish", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Finish", style: .default, handler: { [self] _ in
             guard let tf = alert.textFields?[0], let tx = tf.text, !tx.isEmpty else {
                 let errorAlert = UIAlertController(title: "Invalid sheet name", message: "Sheet name was empty. Please enter a sheet name.", preferredStyle: .alert)
                 errorAlert.addAction(UIAlertAction(title: "Go back", style: .cancel, handler: { (_) in
@@ -111,12 +120,27 @@ class GradeSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 self.present(errorAlert, animated: true, completion: nil)
                 return
             }
+            
             self.gradeSheet.sheetName = tx
-            gradeSheets.append(self.gradeSheet)
+            
+            if let _ = self.gradeSheet.id {
+                for i in gradeSheets {
+                    if i.id == self.gradeSheet.id {
+                        i.sheetName = self.gradeSheet.sheetName
+                        i.grades = self.gradeSheet.grades
+                        break
+                    }
+                }
+            } else {
+                self.gradeSheet.generateID()
+                gradeSheets.append(self.gradeSheet)
+            }
             for i in self.gradeSheet.grades {
                 print(i.description)
             }
-            self.dismiss(animated: true, completion: nil)
+            
+            uploadData()
+            self.performSegue(withIdentifier: "dismissGradeSheetMaker", sender: self)
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -139,8 +163,12 @@ class GradeSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gradeSheet.grades.append(Grade())
+        if gradeSheet.id == nil {
+            gradeSheet.grades.append(Grade())
+        }
         self.isModalInPresentation = true
+        
+        self.title = gradeSheet.sheetName.isEmpty ? "New Grade Sheet" : gradeSheet.sheetName
     }
     
     @IBOutlet weak var tableView: UITableView!
