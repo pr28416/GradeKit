@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
@@ -38,9 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             
         }
         print("Passed secondary signin")
-        NotificationCenter.default.post(name: .closeAuth, object: nil, userInfo: [
-            "Email": user.profile.email as String
-        ])
+        NotificationCenter.default.post(name: .closeAuth, object: nil, userInfo: nil)
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
@@ -61,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
         return true
     }
 

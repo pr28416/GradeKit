@@ -9,8 +9,12 @@
 import UIKit
 import FirebaseAuth
 import GoogleSignIn
+import FirebaseFirestore
 
 class SignupVC: UIViewController, UITextFieldDelegate {
+    
+    var db: Firestore!
+    var ref: DocumentReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,8 @@ class SignupVC: UIViewController, UITextFieldDelegate {
         passwordField.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(closeAuth(_:)), name: .closeAuth, object: nil)
+        
+        db = Firestore.firestore()
     }
     
     @objc func closeAuth(_ notification: Notification) {
@@ -54,18 +60,35 @@ class SignupVC: UIViewController, UITextFieldDelegate {
             raiseLoginError(message: "Email and password must be valid and greater than zero characters.")
             return
         }
+        
+        // Create new user
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            // Check for error
             if let error = error {
                 self.raiseLoginError(message: error.localizedDescription)
                 return
             }
+            // Validate auth result
             guard let authResult = authResult else {return}
+            guard let email = authResult.user.email else {return}
             print("Created user with email: \(email)")
+            
+            // Generate data
+            let data = [
+                "Email": email,
+                "UID": authResult.user.uid
+            ]
+            
+            // Create user in database
+            self.db.collection("Users")
+                .document("DetailedList")
+                .collection("DetailedCollection")
+                .document(authResult.user.uid)
+                .setData(data, merge: true)
+            
+            
             self.dismiss(animated: true) {
-                NotificationCenter.default.post(name: .authLogin, object: nil, userInfo: [
-                    "Email": email as String,
-                    "UID": authResult.user.uid
-                ])
+                NotificationCenter.default.post(name: .authLogin, object: nil, userInfo: data)
             }
         }
     }
@@ -136,14 +159,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
-        print("view disappeared")
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("view will disappear")
         
         if let user = Auth.auth().currentUser {
             let signupVC = self.navigationController?.viewControllers[0] as! SignupVC

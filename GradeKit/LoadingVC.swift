@@ -45,8 +45,11 @@ class LoadingVC: UIViewController {
         print("Securing login data...")
         if let data = notification.userInfo as? [String:String] {
             if let email = data["Email"] {
-                let uid = data["UID"] ?? "N/A"
-                print("Login details: \(email), \(uid)")
+                
+                if let uid = data["UID"] {
+                    print("Login details: \(email), \(uid)")
+                }
+                
                 // Transfer to MainVC
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainTabVC = storyboard.instantiateViewController(identifier: "mainTabVC") as! UITabBarController
